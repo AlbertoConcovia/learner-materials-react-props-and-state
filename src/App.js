@@ -180,7 +180,7 @@ function App() {
                 key={cat.id}
                 name={cat.name}
                 species={cat.species}
-                favFoods={cat.favFoods}
+                favFoods={cat.favFoods.join(", ")}
                 birthYear={cat.birthYear}
                 photo={cat.photo}
                 alt={cat.alt}
