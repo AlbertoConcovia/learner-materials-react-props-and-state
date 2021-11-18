@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CatCard from "./components/CatCard";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [cats, setCats] = useState([
@@ -157,7 +158,7 @@ function App() {
   ]);
 
   const catCount = cats.length;
-  
+   
   return (
     <>
       <Navbar />
@@ -166,8 +167,10 @@ function App() {
       <main>
         <div className="cards__wrapper">
           {cats.map( (cat) => {
+            cat.id =  uuidv4();
             return (
               <CatCard
+                key={cat.id}
                 name={cat.name}
                 species={cat.species}
                 favFoods={cat.favFoods}
