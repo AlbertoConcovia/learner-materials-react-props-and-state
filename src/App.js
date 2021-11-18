@@ -4,9 +4,15 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CatCard from "./components/CatCard";
+import DogCard from "./components/DogCard";
 import { v4 as uuidv4 } from 'uuid';
+import dogs from "./data/dog-data";
+
+const dogsData = dogs;
 
 function App() {
+  const [dogs, setDogs] = useState(dogsData);
+
   const [cats, setCats] = useState([
     {
       name: "Little Miss Purrfect",
@@ -158,11 +164,12 @@ function App() {
   ]);
 
   const catCount = cats.length;
+  const dogCount = dogs.length;
    
   return (
     <>
       <Navbar />
-      <Header catCount={catCount}/>
+      <Header catCount={catCount} dogCount={dogCount}/>
 
       <main>
         <div className="cards__wrapper">
@@ -180,6 +187,22 @@ function App() {
               />
             );
           })}
+          
+          {dogs.map( (dog) => {
+            dog.id =  uuidv4();
+            return (
+              <DogCard
+                key={dog.id}
+                name={dog.name}
+                species={dog.species}
+                favFoods={dog.favFoods}
+                birthYear={dog.birthYear}
+                photo={dog.photo}
+                alt={dog.alt}
+              />
+            );
+          })}
+
         </div>
       </main>
 
