@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 import CatCard from "./components/CatCard";
 
 function App() {
-
   const [cats, setCats] = useState([
     {
       name: "Little Miss Purrfect",
@@ -148,14 +147,27 @@ function App() {
       alt: "A dopey looking Siamese cat with its tongue sticking out",
     },
   ]);
-  
+
   return (
     <>
       <Navbar />
       <Header />
 
       <main>
-        <div className="cards__wrapper">{/* And here! */}</div>
+        <div className="cards__wrapper">
+          {cats.map( (cat) => {
+            return (
+              <CatCard
+                name={cat.name}
+                species={cat.species}
+                favFoods={cat.favFoods}
+                birthYear={cat.birthYear}
+                photo={cat.photo}
+                alt={cat.alt}
+              />
+            );
+          })}
+        </div>
       </main>
 
       <Footer />
