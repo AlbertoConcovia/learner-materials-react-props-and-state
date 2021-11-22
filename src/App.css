@@ -4,6 +4,10 @@
   --yellow: #F4D35E;
   --orange: #EE964B;
   --red: #F95738;
+
+  --margin: 1%;
+  --padding: 1%;
+
 }
 
 @font-face {
@@ -40,6 +44,25 @@ body {
   margin-bottom: 0;
   margin-top: .25em;
 }
+
+.form{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 30em;
+  min-width: 20vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form__input{
+  width: 100%;
+}
+
+.form__button{
+  margin: var(--margin);
+  padding: var(--padding);
+}
+
 
 .cards__wrapper {
   display: flex;
